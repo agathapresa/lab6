@@ -8,9 +8,9 @@ $(document).ready(function() {
 /*
  * Function that is called when the document is ready.
  */
-function initializePage() {
+function initializePage(e) {
+	e.preventDefault();
 	$('.project a').click(addProjectDetails);
-
 	// $('#colorBtn').click(randomizeColors);
 }
 
@@ -27,4 +27,9 @@ function addProjectDetails(e) {
 	var idNumber = projectID.substr('project'.length);
 
 	console.log("User clicked on project " + idNumber);
+	$.get("http://localhost:3000", callBackFn)
+}
+
+function callBackFn(result){
+	console.log("reponse data is" + result);
 }
